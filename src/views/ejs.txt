@@ -1,0 +1,5 @@
+<% Controle de fluxo (if, for...) %>
+<%= Imprime escapando caractres %>
+<%- Imprime sem escapar caractres %>
+<%# Cometário %>
+<%- include("CAMINHO/ARQUIVO"); %>
