@@ -8,7 +8,7 @@ exports.initialPage = (req, res) => {
     // console.log(req.flash('info'), req.flash('error'), req.flash('success'));
 
     res.status(200).render('index', {
-        title: `My title page`,
+        title: `Agenda`,
         numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     });
     return
