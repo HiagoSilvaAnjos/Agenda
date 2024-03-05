@@ -5,10 +5,12 @@ exports.myMiddlewareGlobal = (req, res, next) => {
 
 exports.checkCsrfError = (err, req, res, next) => {
 
-    if (err && err.code === "EBADCSRFTOKEN") {
+    if (err) {
         console.log("Success in ERROR")
         return res.render("404");
     }
+
+    next();
 
 };
 
