@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 const LoginSchema = new mongoose.Schema({
-    email: { type: "string", required: true, },
-    password: { type: "string", required: true, },
+    email: { type: String, required: true, },
+    password: { type: String, required: true, },
 })
 
 const LoginModel = mongoose.model("Login", LoginSchema);
@@ -17,19 +17,27 @@ class Login {
         this.user = null;
     }
 
-    register() {
+    async register() {
         this.valid();
         if (this.errors.length > 0) { return };
+
+        try {
+            this.user = await LoginModel.create(this.body);
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
     valid() {
         this.cleanUp();
         // Validando
         // Email tem que ser válido
-        if (!validator.isEmail(this.body.email)) { this.errors.push('Email is invalid'); };
+        if (!validator.isEmail(this.body.email)) { this.errors.push('Email inválido.'); };
 
         // A senha precisa estar entre 5 a 30 caracteres
-        if (this.body.password < 5 || this.body.password > 30) { this.errors.push('Password must be 5 to 30 characters long'); }
+        if (this.body.password.length < 4 || this.body.password.length > 30) {
+            this.errors.push('Sua senha precisa estar entre 5 a 30 caracteres');
+        }
     }
 
     cleanUp() {
@@ -43,7 +51,6 @@ class Login {
             email: this.body.email,
             password: this.body.password,
         };
-
     }
 }
 

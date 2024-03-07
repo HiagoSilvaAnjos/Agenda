@@ -36,7 +36,7 @@ app.use(express.static(pathPublic));
 
 const sessionOptions = session({
     secret: "jkghdskfuyrgaçshgaishdrahsdg ()",
-    store: MongoStore.create({ mongoUrl: `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@clusterdatabase.ldhdmfi.mongodb.net/?retryWrites=true&w=majority&appName=ClusterDataBase` }),
+    store: MongoStore.create({ mongoUrl: `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@clusterdatabase.ldhdmfi.mongodb.net/?retryWrites=true&w=majority&appName=Agenda` }),
     resave: false,
     saveUninitialized: false,
     cookie: {
