@@ -1,79 +1,81 @@
 <%- include("includes/head") %>
-    <!-- <%- include("includes/nav") %> -->
+    <%- include("includes/nav") %>
 
 
-    <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8 my-3">
+                    <h1 class="display-4 text-center">Login</h1>
+                    <p class="text-center lead">Faça login ou crie sua conta</p>
+                </div>
+
+                <div class="container my-4">
+
+                    <%- include("includes/messages") %>
+
+
+                        <div class="row">
+                            <!-- Criar conta -->
+
+                            <div class="col mx-5">
+                                <h4>
+                                    Crie sua conta
+                                </h4>
+                                <p class="mb-4">Se você não possui uma conta, crie ela abaixo:</p>
+
+                                <div>
+                                    <div class="text-left">
+                                        <form action="/login/register" method="post">
+                                            <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+                                            <div class="mb-3">
+                                                <label for="new-email" class="form-label">Email address</label>
+                                                <input id="new-email" type="email" class="form-control" name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="new-password" class="form-label">Password</label>
+                                                <input id="new-password" type="password" class="form-control"
+                                                    name="password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Criar conta</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Login -->
+
+                            <div class="col mx-5">
+                                <h4>
+                                    Faça seu login
+                                </h4>
+                                <p class="mb-4">Se você já possui uma conta, faça seu login abaixo:</p>
+                                <div>
+                                    <div class="text-left">
+                                        <form action="/login/login" method="post">
+                                            <input type="hidden" name="_csrf" value=<%=csrfToken%>>
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email address</label>
+                                                <input id="email" type="email" class="form-control" name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input id="password" type="password" class="form-control"
+                                                    name="password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Entrar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+
             <div class="col-lg-2"></div>
-
-            <div class="col-lg-8 my-3">
-                <h1 class="display-4 text-center">Login</h1>
-                <p class="text-center lead">Faça login ou crie sua conta</p>
-            </div>
-
-            <div class="container my-4">
-
-                <%- include("includes/messages") %>
-
-
-                    <div class="row">
-                        <!-- Criar conta -->
-
-                        <div class="col mx-5">
-                            <h4>
-                                Crie sua conta
-                            </h4>
-                            <p class="mb-4">Se você não possui uma conta, crie ela abaixo:</p>
-
-                            <div>
-                                <div class="text-left">
-                                    <form action="/login/register" method="post">
-                                        <input type="hidden" name="_csrf" value=<%=csrfToken %>>
-                                        <div class="mb-3">
-                                            <label class="form-label">Email address</label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" name="password">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Criar conta</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Login -->
-
-                        <div class="col mx-5">
-                            <h4>
-                                Faça seu login
-                            </h4>
-                            <p class="mb-4">Se você já possui uma conta, faça seu login abaixo:</p>
-                            <div>
-                                <div class="text-left">
-                                    <form action="/login/login" method="post">
-                                        <input type="hidden" name="_csrf" value=<%=csrfToken%>>
-                                        <div class="mb-3">
-                                            <label class="form-label">Email address</label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" name="password">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Entrar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-            </div>
         </div>
 
-        <div class="col-lg-2"></div>
-    </div>
-
-    <%- include("includes/footer"); %>
+        <%- include("includes/footer"); %>
