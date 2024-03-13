@@ -18,6 +18,12 @@ class Login {
         this.user = null;
     }
 
+    async login() {
+        this.valid();
+        if (this.errors.length > 0) { return };
+
+    }
+
     async register() {
         this.valid();
         if (this.errors.length > 0) { return };
@@ -29,15 +35,12 @@ class Login {
         const salt = bcryptjs.genSaltSync();
         this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
-        try {
-            this.user = await LoginModel.create(this.body);
-        } catch (error) {
-            console.log(error.message);
-        }
+        this.user = await LoginModel.create(this.body);
+
     }
 
     async userExists() {
-        const user = await LoginModel.findOne({ emai: this.body.emai });
+        const user = await LoginModel.findOne({ email: this.body.email });
         if (user) this.errors.push("Usuário já existe.");
     }
 
@@ -64,6 +67,7 @@ class Login {
             email: this.body.email,
             password: this.body.password,
         };
+
     }
 }
 
