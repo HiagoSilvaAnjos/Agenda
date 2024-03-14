@@ -18,6 +18,7 @@ exports.register = async (req, res) => {
                 return res.redirect('/login');
             });
             return
+            
         }
 
         req.flash('success', "Seu usuário foi criado com succeso!");
