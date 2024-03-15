@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
                 return res.redirect('/login');
             });
             return
-            
+
         }
 
         req.flash('success', "Seu usuário foi criado com succeso!");
@@ -29,8 +29,6 @@ exports.register = async (req, res) => {
         console.log(error)
         return res.render('404');
     }
-
-
 }
 
 exports.login = async (req, res) => {
