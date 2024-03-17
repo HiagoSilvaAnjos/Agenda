@@ -20,6 +20,7 @@ exports.register = async (req, res) => {
             return
 
         }
+        
 
         req.flash('success', "Seu usuário foi criado com succeso!");
         req.session.save(() => {
