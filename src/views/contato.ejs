@@ -18,19 +18,23 @@
                                     <input type="hidden" name="_csrf" value=<%=csrfToken %>>
                                     <div class="mb-3">
                                         <label for="new-contato-name" class="form-label">Nome</label>
-                                        <input id="new-contato-name" type="text" class="form-control" name="name">
+                                        <input value="<%=contato.name%>" id="new-contato-name" type="text"
+                                            class="form-control" name="name">
                                     </div>
                                     <div class="mb-3">
                                         <label for="new-contato-surname" class="form-label">Sobrenome</label>
-                                        <input id="new-contato-surname" type="text" class="form-control" name="surname">
+                                        <input value="<%=contato.surname%>" id="new-contato-surname" type="text"
+                                            class="form-control" name="surname">
                                     </div>
                                     <div class="mb-3">
                                         <label for="new-contato-email" class="form-label">Email</label>
-                                        <input id="new-contato-email" type="email" class="form-control" name="email">
+                                        <input value="<%=contato.email%>" id="new-contato-email" type="email"
+                                            class="form-control" name="email">
                                     </div>
                                     <div class="mb-3">
                                         <label for="new-contato-tel" class="form-label">Telefone</label>
-                                        <input id="new-contato-tel" type="tel" class="form-control" name="tel">
+                                        <input value="<%=contato.tel%>" id="new-contato-tel" type="tel"
+                                            class="form-control" name="tel">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Criar conta</button>
                                 </form>
